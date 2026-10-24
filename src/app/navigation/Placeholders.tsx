@@ -18,6 +18,7 @@ export function HomePlaceholder({ navigation }: TabScreenProps<'Home'>) {
       <Text className="text-3xl font-bold text-ink">Home</Text>
       <AppButton label="Open workout w10" onPress={() => navigation.navigate('WorkoutDetails', { workoutId: 'w10' })} />
       <AppButton label="Open Goals" variant="ghost" onPress={() => navigation.navigate('Goals')} />
+      <AppButton label="Open Challenges" variant="ghost" onPress={() => navigation.navigate('Challenges')} />
     </View>
   );
 }

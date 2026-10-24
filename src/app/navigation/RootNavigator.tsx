@@ -8,6 +8,7 @@ import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { DetailsPlaceholder, Screen } from './Placeholders';
 import { SignInScreen } from '@/features/auth/screens/SignInScreen';
 import { SignUpScreen } from '@/features/auth/screens/SignUpScreen';
+import { ChallengesScreen } from '@/features/challenges/screens/ChallengesScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -16,7 +17,6 @@ const LiveTracking = () => <Screen title="Live tracking" />;
 const WorkoutSummary = () => <Screen title="Workout summary" />;
 const Goals = () => <Screen title="Goals" />;
 const Achievements = () => <Screen title="Achievements" />;
-const Challenges = () => <Screen title="Challenges" />;
 
 // One NavigationContainer at the root (Lab 03).
 // Stack: drill deeper and come back. The tabs live inside the "Main" screen.
@@ -50,7 +50,7 @@ export function RootNavigator() {
         <Stack.Screen name="WorkoutDetails" component={DetailsPlaceholder} options={{ title: 'Workout' }} />
         <Stack.Screen name="Goals" component={Goals} />
         <Stack.Screen name="Achievements" component={Achievements} />
-        <Stack.Screen name="Challenges" component={Challenges} />
+        <Stack.Screen name="Challenges" component={ChallengesScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
