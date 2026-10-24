@@ -4,6 +4,7 @@ import type { MainTabParamList } from './types';
 import { useTheme } from '@/context/theme';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { HomePlaceholder, Screen } from './Placeholders';
+import { ProfileScreen } from '@/features/profile/screens/ProfileScreen';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
@@ -12,7 +13,6 @@ const ICONS = { Home: 'home', History: 'time', Stats: 'stats-chart', Leaderboard
 const History = () => <Screen title="History" />;
 const Stats = () => <Screen title="Stats" />;
 const Leaderboard = () => <Screen title="Leaderboard" />;
-const Profile = () => <Screen title="Profile" />;
 
 // Tabs: five equal areas, one tap apart (Lab 03)
 export function MainTabs() {
@@ -31,7 +31,7 @@ export function MainTabs() {
       <Tab.Screen name="History" component={History} />
       <Tab.Screen name="Stats" component={Stats} />
       <Tab.Screen name="Leaderboard" component={Leaderboard} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
