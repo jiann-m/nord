@@ -9,13 +9,13 @@ import { DetailsPlaceholder, Screen } from './Placeholders';
 import { SignInScreen } from '@/features/auth/screens/SignInScreen';
 import { SignUpScreen } from '@/features/auth/screens/SignUpScreen';
 import { ChallengesScreen } from '@/features/challenges/screens/ChallengesScreen';
+import { GoalsScreen } from '@/features/goals/screens/GoalsScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const WorkoutSetup = () => <Screen title="Workout setup" />;
 const LiveTracking = () => <Screen title="Live tracking" />;
 const WorkoutSummary = () => <Screen title="Workout summary" />;
-const Goals = () => <Screen title="Goals" />;
 const Achievements = () => <Screen title="Achievements" />;
 
 // One NavigationContainer at the root (Lab 03).
@@ -48,7 +48,7 @@ export function RootNavigator() {
         <Stack.Screen name="LiveTracking" component={LiveTracking} options={{ headerShown: false }} />
         <Stack.Screen name="WorkoutSummary" component={WorkoutSummary} options={{ title: 'Summary' }} />
         <Stack.Screen name="WorkoutDetails" component={DetailsPlaceholder} options={{ title: 'Workout' }} />
-        <Stack.Screen name="Goals" component={Goals} />
+        <Stack.Screen name="Goals" component={GoalsScreen} />
         <Stack.Screen name="Achievements" component={Achievements} />
         <Stack.Screen name="Challenges" component={ChallengesScreen} />
       </Stack.Navigator>

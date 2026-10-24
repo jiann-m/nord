@@ -11,9 +11,9 @@ export function SignUpScreen({ navigation }: RootScreenProps<'SignUp'>) {
   );
 
   return (
-    <KeyboardAvoidingView className="flex-1 bg-black" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <KeyboardAvoidingView className="flex-1 bg-page" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerClassName="gap-6 p-6" keyboardShouldPersistTaps="handled">
-        <Text className="text-stone-300">Create your Nord account. You can add your weight and height later in Profile.</Text>
+        <Text className="text-body">Create your Nord account. You can add your weight and height later in Profile.</Text>
 
         <View className="gap-4">
           <AppInput
