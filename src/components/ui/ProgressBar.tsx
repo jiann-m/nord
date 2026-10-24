@@ -9,13 +9,13 @@ export function ProgressBar({ label, value, caption }: Props) {
   return (
     <View className="gap-2" accessibilityRole="progressbar" accessibilityLabel={`${label} ${percent}%`}>
       <View className="flex-row justify-between">
-        <Text className="font-semibold text-paper">{label}</Text>
-        <Text className="font-bold text-paper">{percent}%</Text>
+        <Text className="font-semibold text-ink">{label}</Text>
+        <Text className="font-bold text-ink">{percent}%</Text>
       </View>
-      <View className="h-2 overflow-hidden rounded-full bg-stone-800">
-        <View className="h-full rounded-full bg-paper" style={{ width: `${percent}%` }} />
+      <View className="h-2 overflow-hidden rounded-full bg-track">
+        <View className="h-full rounded-full bg-ink" style={{ width: `${percent}%` }} />
       </View>
-      <Text className="text-xs text-stone-400">{caption}</Text>
+      <Text className="text-xs text-muted">{caption}</Text>
     </View>
   );
 }
