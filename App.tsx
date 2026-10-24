@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import './global.css';
+import { ThemeProvider } from '@/context/theme';
+import { ProfileProvider } from '@/context/profile';
+import { WorkoutsProvider } from '@/context/workouts';
+import { RootNavigator } from '@/app/navigation/RootNavigator';
 
+// The providers wrap the navigator, so every screen can read the shared state (Lab 02)
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider>
+      <ProfileProvider>
+        <WorkoutsProvider>
+          <RootNavigator />
+        </WorkoutsProvider>
+      </ProfileProvider>
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
