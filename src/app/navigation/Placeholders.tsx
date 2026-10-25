@@ -1,5 +1,7 @@
-import { View, Text } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { AppButton } from '@/components/ui/AppButton';
+import { RouteMap } from '@/components/map/RouteMap';
+import { useWorkouts } from '@/context/workouts';
 import type { RootScreenProps, TabScreenProps } from './types';
 
 // TEMPORARY screens so the navigation can be tested.
@@ -12,6 +14,7 @@ export function Screen({ title }: { title: string }) {
   );
 }
 
+// Until Farah's Home is merged (Step 18 removes this one)
 export function HomePlaceholder({ navigation }: TabScreenProps<'Home'>) {
   return (
     <View className="flex-1 justify-center gap-4 bg-page p-6">
@@ -23,6 +26,15 @@ export function HomePlaceholder({ navigation }: TabScreenProps<'Home'>) {
   );
 }
 
+// Until Workout Details is built: shows the workout's route so the map can be tested
 export function DetailsPlaceholder({ route }: RootScreenProps<'WorkoutDetails'>) {
-  return <Screen title={`Workout ${route.params.workoutId}`} />;
+  const { workouts } = useWorkouts();
+  const workout = workouts.find((w) => w.id === route.params.workoutId);
+
+  return (
+    <ScrollView className="flex-1 bg-page" contentContainerClassName="gap-4 p-5">
+      <Text className="text-2xl font-bold text-ink">Workout {route.params.workoutId}</Text>
+      {workout ? <RouteMap points={workout.route} height={300} /> : <Text className="text-muted">Workout not found</Text>}
+    </ScrollView>
+  );
 }
