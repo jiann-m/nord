@@ -27,18 +27,6 @@ export function HomePlaceholder({ navigation }: TabScreenProps<'Home'>) {
   );
 }
 
-// Until Yassin's Workout Setup is merged: pick a type and start
-export function SetupPlaceholder({ navigation }: RootScreenProps<'WorkoutSetup'>) {
-  return (
-    <View className="flex-1 justify-center gap-4 bg-page p-6">
-      <Text className="text-2xl font-bold text-ink">Choose a workout</Text>
-      <AppButton label="Start a run" onPress={() => navigation.navigate('LiveTracking', { type: 'running' })} />
-      <AppButton label="Start a walk" variant="ghost" onPress={() => navigation.navigate('LiveTracking', { type: 'walking' })} />
-      <AppButton label="Start a ride" variant="ghost" onPress={() => navigation.navigate('LiveTracking', { type: 'cycling' })} />
-    </View>
-  );
-}
-
 // Until Workout Details is built: shows the workout's route so the map can be tested
 export function DetailsPlaceholder({ route }: RootScreenProps<'WorkoutDetails'>) {
   const { workouts } = useWorkouts();
