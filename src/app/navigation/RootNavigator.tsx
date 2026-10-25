@@ -5,7 +5,7 @@ import type { RootStackParamList } from './types';
 import { MainTabs } from './MainTabs';
 import { useTheme } from '@/context/theme';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import { DetailsPlaceholder, Screen } from './Placeholders';
+import { DetailsPlaceholder } from './Placeholders';
 import { SignInScreen } from '@/features/auth/screens/SignInScreen';
 import { SignUpScreen } from '@/features/auth/screens/SignUpScreen';
 import { ChallengesScreen } from '@/features/challenges/screens/ChallengesScreen';
@@ -13,10 +13,9 @@ import { GoalsScreen } from '@/features/goals/screens/GoalsScreen';
 import { LiveTrackingScreen } from '@/features/tracking/screens/LiveTrackingScreen';
 import { WorkoutSetupScreen } from '@/features/setup/screens/WorkoutSetupScreen';
 import { WorkoutSummaryScreen } from '@/features/summary/screens/WorkoutSummaryScreen';
+import { AchievementsScreen } from '@/features/achievements/screens/AchievementsScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-const Achievements = () => <Screen title="Achievements" />;
 
 // One NavigationContainer at the root (Lab 03).
 // Stack: drill deeper and come back. The tabs live inside the "Main" screen.
@@ -49,7 +48,7 @@ export function RootNavigator() {
         <Stack.Screen name="WorkoutSummary" component={WorkoutSummaryScreen} options={{ title: 'Summary' }} />
         <Stack.Screen name="WorkoutDetails" component={DetailsPlaceholder} options={{ title: 'Workout' }} />
         <Stack.Screen name="Goals" component={GoalsScreen} />
-        <Stack.Screen name="Achievements" component={Achievements} />
+        <Stack.Screen name="Achievements" component={AchievementsScreen} />
         <Stack.Screen name="Challenges" component={ChallengesScreen} />
       </Stack.Navigator>
     </NavigationContainer>
