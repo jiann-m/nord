@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 import type { MainTabParamList } from './types';
 import { useTheme } from '@/context/theme';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import { HomePlaceholder } from './Placeholders';
+import { HomeScreen } from '@/features/home/screens/HomeScreen';
 import { ProfileScreen } from '@/features/profile/screens/ProfileScreen';
 import { StatsScreen } from '@/features/stats/screens/StatsScreen';
 import { LeaderboardScreen } from '@/features/leaderboard/screens/LeaderboardScreen';
@@ -26,7 +26,7 @@ export function MainTabs() {
         headerRight: () => <ThemeToggle />,
       })}
     >
-      <Tab.Screen name="Home" component={HomePlaceholder} />
+      <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="History" component={HistoryScreen} />
       <Tab.Screen name="Stats" component={StatsScreen} />
       <Tab.Screen name="Leaderboard" component={LeaderboardScreen} />
