@@ -19,9 +19,22 @@ export function HomePlaceholder({ navigation }: TabScreenProps<'Home'>) {
   return (
     <View className="flex-1 justify-center gap-4 bg-page p-6">
       <Text className="text-3xl font-bold text-ink">Home</Text>
-      <AppButton label="Open workout w10" onPress={() => navigation.navigate('WorkoutDetails', { workoutId: 'w10' })} />
+      <AppButton label="Start a workout" onPress={() => navigation.navigate('WorkoutSetup')} />
+      <AppButton label="Open workout w10" variant="ghost" onPress={() => navigation.navigate('WorkoutDetails', { workoutId: 'w10' })} />
       <AppButton label="Open Goals" variant="ghost" onPress={() => navigation.navigate('Goals')} />
       <AppButton label="Open Challenges" variant="ghost" onPress={() => navigation.navigate('Challenges')} />
+    </View>
+  );
+}
+
+// Until Yassin's Workout Setup is merged: pick a type and start
+export function SetupPlaceholder({ navigation }: RootScreenProps<'WorkoutSetup'>) {
+  return (
+    <View className="flex-1 justify-center gap-4 bg-page p-6">
+      <Text className="text-2xl font-bold text-ink">Choose a workout</Text>
+      <AppButton label="Start a run" onPress={() => navigation.navigate('LiveTracking', { type: 'running' })} />
+      <AppButton label="Start a walk" variant="ghost" onPress={() => navigation.navigate('LiveTracking', { type: 'walking' })} />
+      <AppButton label="Start a ride" variant="ghost" onPress={() => navigation.navigate('LiveTracking', { type: 'cycling' })} />
     </View>
   );
 }

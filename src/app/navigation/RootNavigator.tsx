@@ -5,16 +5,15 @@ import type { RootStackParamList } from './types';
 import { MainTabs } from './MainTabs';
 import { useTheme } from '@/context/theme';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
-import { DetailsPlaceholder, Screen } from './Placeholders';
+import { DetailsPlaceholder, Screen, SetupPlaceholder } from './Placeholders';
 import { SignInScreen } from '@/features/auth/screens/SignInScreen';
 import { SignUpScreen } from '@/features/auth/screens/SignUpScreen';
 import { ChallengesScreen } from '@/features/challenges/screens/ChallengesScreen';
 import { GoalsScreen } from '@/features/goals/screens/GoalsScreen';
+import { LiveTrackingScreen } from '@/features/tracking/screens/LiveTrackingScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const WorkoutSetup = () => <Screen title="Workout setup" />;
-const LiveTracking = () => <Screen title="Live tracking" />;
 const WorkoutSummary = () => <Screen title="Workout summary" />;
 const Achievements = () => <Screen title="Achievements" />;
 
@@ -44,8 +43,8 @@ export function RootNavigator() {
         <Stack.Screen name="SignIn" component={SignInScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{ title: 'Create account' }} />
         <Stack.Screen name="Main" component={MainTabs} options={{ headerShown: false }} />
-        <Stack.Screen name="WorkoutSetup" component={WorkoutSetup} options={{ title: 'New workout' }} />
-        <Stack.Screen name="LiveTracking" component={LiveTracking} options={{ headerShown: false }} />
+        <Stack.Screen name="WorkoutSetup" component={SetupPlaceholder} options={{ title: 'New workout' }} />
+        <Stack.Screen name="LiveTracking" component={LiveTrackingScreen} options={{ headerShown: false, gestureEnabled: false }} />
         <Stack.Screen name="WorkoutSummary" component={WorkoutSummary} options={{ title: 'Summary' }} />
         <Stack.Screen name="WorkoutDetails" component={DetailsPlaceholder} options={{ title: 'Workout' }} />
         <Stack.Screen name="Goals" component={GoalsScreen} />
